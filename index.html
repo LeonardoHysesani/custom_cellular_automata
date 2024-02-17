@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Cellular Automata</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="application/javascript" src="this.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="outer_container">
+    <canvas id="world_canvas" height="600px" width="600px"></canvas>
+    <label for="rule-div">Rule String</label>
+    <div id="rule-div"></div>
+    <script type="application/javascript">
+        let temparr = ruleString.match(/.{1,64}/g);
+        for (let i = 0; i < temparr.length; i++) {
+            $("#rule-div")[0].innerHTML += temparr[i] + "<br>";
+        }
+    </script>
+</div>
+</body>
+</html>
