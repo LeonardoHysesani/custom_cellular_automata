@@ -11,10 +11,12 @@
     <label for="rule-div">Rule String</label>
     <div id="rule-div"></div>
     <script type="application/javascript">
-        let temparr = ruleString.match(/.{1,64}/g);
-        for (let i = 0; i < temparr.length; i++) {
-            $("#rule-div")[0].innerHTML += temparr[i] + "<br>";
-        }
+        $(document).ready(function () {
+            let temparr = ruleString.match(/.{1,64}/g);
+            for (let i = 0; i < temparr.length; i++) {
+                $("#rule-div")[0].innerHTML += temparr[i] + "<br>";
+            }
+        });
     </script>
 </div>
 </body>
