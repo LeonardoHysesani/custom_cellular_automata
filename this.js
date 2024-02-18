@@ -25,8 +25,6 @@ function generateRuleString() {
         if (neighbourhood.mainCell() === 1) {
             if (neighbourhood.liveNeighbours() < 2 || 4 <= neighbourhood.liveNeighbours()) {
                 rule = "0";
-                console.log("Live cell Died")
-                console.log("Neighbourhood: " + neighbourhood.binstr);
             }
             else {
                 rule = "1";
