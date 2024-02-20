@@ -3,6 +3,15 @@ let userRules = "cell === 1 && liveNeighbours < 2 : 0;\n" +
     "cell === 1 && liveNeighbours >= 4 : 0;\n" +
     "cell === 0 && liveNeighbours === 3 : 1;";
 
+// A interesting tweak on the game of life. Similar general behavior with different patterns
+let leonardosRuleset = "cell === 1 && liveNeighbours <= 2 : 0;\n" +
+    "\n" +
+    "cell === 1 && 3 < liveNeighbours && liveNeighbours < 4 : 1;\n" +
+    "\n" +
+    "cell === 1 && liveNeighbours >= 4 : 0;\n" +
+    "\n" +
+    "cell === 0 && liveNeighbours === 3 || liveNeighbours === 4 : 1;";
+
 /**
  * Binary string representation of current ruleset
  * @type {string}
