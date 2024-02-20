@@ -13,7 +13,7 @@ body {
     width: inherit;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #world_canvas {
@@ -73,4 +73,24 @@ body {
 
 #switch-rule-display:hover {
     background-color: grey;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#custom-rules-container {
+    margin: 50px;
+    min-width: 20vw;
+    width: 20vw;
+    max-width: 20vw;
+    overflow: hidden;
+}
+
+#rules-area {
+    min-width: inherit;
+    width: inherit;
+    max-width: inherit;
 }

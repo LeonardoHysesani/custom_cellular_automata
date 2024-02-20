@@ -12,21 +12,26 @@
 </head>
 <body>
 <div id="outer_container">
-    <div id="controls">
-        <div id="play-pause-control">
-            <label for="play-pause-btn">Play/Pause</label>
-            <span id="play-pause-btn" class="material-symbols-outlined">pause</span>
+    <div style="width: 20vw; margin: 50px"></div>
+    <div id="main-container">
+        <div id="controls">
+            <div id="play-pause-control">
+                <label for="play-pause-btn">Play/Pause</label>
+                <span id="play-pause-btn" class="material-symbols-outlined">pause</span>
+            </div>
+            <div id="speed-control">
+                <label for="speed-slider">Simulation speed</label>
+                <input type="range" id="speed-slider" name="speed-slider" min="1" max="30" value="5"/>
+            </div>
         </div>
-        <div id="speed-control">
-            <label for="speed-slider">Simulation speed</label>
-            <input type="range" id="speed-slider" name="speed-slider" min="1" max="30" value="5"/>
-        </div>
+        <canvas id="world_canvas" height="600px" width="600px"></canvas>
+        <label for="rule-div">Ruleset:</label>
+        <div id="rule-div" class="hex"></div>
+        <div id="switch-rule-display">Hex/Binary</div>
     </div>
-
-    <canvas id="world_canvas" height="600px" width="600px"></canvas>
-    <label for="rule-div">Ruleset:</label>
-    <div id="rule-div" class="hex"></div>
-    <div id="switch-rule-display">Hex/Binary</div>
+    <div id="custom-rules-container">
+        <textarea id="rules-area"></textarea>
+    </div>
 </div>
 </body>
 </html>

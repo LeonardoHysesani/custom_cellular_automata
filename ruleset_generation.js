@@ -1,51 +1,13 @@
-/**
- * A string to be parsed, containing user-specified rules for our automata.
- *
- * **Expressions** can be any valid JavaScript expression.
- *
- * **Results** are state values, 0 or 1.
- *
- * **Format:**
- *
- * expression:result;
- *
- * expression:result;
- *
- * expression:result;
- *
- * expression:result;
- *
- * **Example (game of life):**
- *
- * cell === 1 && liveNeighbours < 2 : 0;
- *
- * cell === 1 && 2 <= liveNeighbours && liveNeighbours < 4 : 1;
- *
- * cell === 1 && liveNeighbours >= 4 : 0;
- *
- * cell === 0 && liveNeighbours === 3 : 1;
- *
- * @type {string}
- */
 let userRules = "cell === 1 && liveNeighbours < 2 : 0;\n" +
     "cell === 1 && 2 <= liveNeighbours && liveNeighbours < 4 : 1;\n" +
     "cell === 1 && liveNeighbours >= 4 : 0;\n" +
     "cell === 0 && liveNeighbours === 3 : 1;";
 
-userRules = userRules.replaceAll(" ", "");
-userRules = userRules.replaceAll("\n", "");
-// Separate lines
-let tokenList = userRules.split(";");
-// Separate expression from state
-tokenList.forEach((elem, i, array) => {array[i] = elem.split(":")});
-// Remove last line (empty) and any possible empty expressions/states
-tokenList = tokenList.filter((elem) => {return !elem.includes("");});
-
 /**
  * Binary string representation of current ruleset
  * @type {string}
  */
-let ruleString = generateRuleString(tokenList);
+let ruleString = generateRuleString(parseCustomRuleString(userRules));
 //let ruleString = "00100000001000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 //let ruleString = "00010000111100001111000011110011111000011110000111100011111000011110000111100001111000011110000111100001111010011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100000";
 //let ruleArray = ruleString.split("");
@@ -72,6 +34,55 @@ function generateRuleString(rulesArray) {
     }
     //console.log(rules);
     return rules;
+}
+
+/**
+ * @param string A string to be parsed, containing user-specified rules for our automata.
+ *
+ * **Expressions** can be any valid JavaScript expression.
+ *
+ * **Results** are state values, 0 or 1.
+ *
+ * **Format:**
+ *
+ * expression:result;
+ *
+ * expression:result;
+ *
+ * expression:result;
+ *
+ * expression:result;
+ *
+ * **Example (game of life):**
+ *
+ * cell === 1 && liveNeighbours < 2 : 0;
+ *
+ * cell === 1 && 2 <= liveNeighbours && liveNeighbours < 4 : 1;
+ *
+ * cell === 1 && liveNeighbours >= 4 : 0;
+ *
+ * cell === 0 && liveNeighbours === 3 : 1;
+ *
+ * @returns {Array} Rules array in the following form:
+ *
+ * [[expression, result],
+ *
+ * [expression, result],
+ *
+ * [expression, result],
+ *
+ *  [expression, result]]
+ */
+function parseCustomRuleString(string) {
+    string = string.replaceAll(" ", "");
+    string = string.replaceAll("\n", "");
+    // Separate lines
+    let tokenList = string.split(";");
+    // Separate expression from state
+    tokenList.forEach((elem, i, array) => {array[i] = elem.split(":")});
+    // Remove last line (empty) and any possible empty expressions/states
+    tokenList = tokenList.filter((elem) => {return !elem.includes("");});
+    return tokenList;
 }
 
 /*
