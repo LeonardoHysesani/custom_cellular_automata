@@ -5,3 +5,8 @@
 // TODO: Add clear grid button
 
 // TODO: Add README to repository
+
+/* TODO: Add more variables for use in rules
+         - deadNeighbours
+         - neighbours[8]
+* */
