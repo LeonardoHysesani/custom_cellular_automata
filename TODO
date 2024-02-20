@@ -1,0 +1,4 @@
+// TODO
+- Make generateRuleString() take a list of rules (in what form??) as parameters and generate a custom ruleset
+- Add control for grid size
+- Add UI for custom rule generation
