@@ -46,12 +46,28 @@ $(document).ready(function() {
     });
 
     $("#apply-ruleset")[0].addEventListener("click", function () {
-        applyUserRuleSet($("#rules-area")[0].value);
+        applyRuleSet($("#rules-area")[0].value);
         updateRuleDisplay();
+    });
+
+    $("#apply-game-of-life")[0].addEventListener("click", function () {
+        loadGameOfLife();
     });
 });
 
 function updateRuleDisplay() {
     // Rule display
     $("#rule-div")[0].innerHTML = binaryToHex(ruleString);
+}
+
+function loadGameOfLife() {
+    $("#rules-area")[0].value = "cell === 1 && liveNeighbours < 2 : 0;\n" +
+        "\n" +
+        "cell === 1 && 2 <= liveNeighbours && liveNeighbours < 4 : 1;\n" +
+        "\n" +
+        "cell === 1 && liveNeighbours >= 4 : 0;\n" +
+        "\n" +
+        "cell === 0 && liveNeighbours === 3 : 1;";
+    applyRuleSet($("#rules-area")[0].value);
+    updateRuleDisplay();
 }

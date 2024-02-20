@@ -121,3 +121,14 @@ body {
 #apply-ruleset:hover {
     background-color: grey;
 }
+
+#apply-game-of-life {
+    cursor: pointer;
+    margin: 10px;
+}
+
+#apply-game-of-life:hover {
+    color: yellow;
+    background-color: gray;
+    width: fit-content;
+}
