@@ -2,32 +2,23 @@
 <head>
     <title>Cellular Automata</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="application/javascript" src="draw.js"></script>
     <script type="application/javascript" src="this.js"></script>
     <script type="application/javascript" src="bin_hex_conversion.js"></script>
+    <script type="application/javascript" src="controls.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 <div id="outer_container">
     <span id="play-pause-btn" class="material-symbols-outlined">pause</span>
+    <label for="speed-slider">Simulation speed</label>
+    <input type="range" id="speed-slider" name="speed-slider" min="1" max="30" value="5"/>
     <canvas id="world_canvas" height="600px" width="600px"></canvas>
     <label for="rule-div">Rules</label>
     <div id="rule-div"></div>
     <script type="application/javascript">
         $(document).ready(function () {
-            // Play/pause btn
-            document.addEventListener("keypress", function (ev) {
-                if (ev.key === " ") {
-                    toggleSimulationEnabled();
-                }
-            });
-            $("#play-pause-btn")[0].addEventListener("click", () => toggleSimulationEnabled());
-            function toggleSimulationEnabled() {
-                simulationEnabled = !simulationEnabled;
-                $("#play-pause-btn")[0].innerText = simulationEnabled ? "pause" : "play_arrow";
-            }
-            $("#play-pause-btn")[0].innerHTML = simulationEnabled ? "play_arrow" : "pause";
-
             // Rule display
             let hexstr = binaryToHex(ruleString);
             let hexarr = hexstr.match(/.{1,32}/g);

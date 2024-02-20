@@ -29,7 +29,11 @@ body {
 #play-pause-btn {
     cursor: pointer;
     user-select: none;
-    margin-bottom: 30px;
     border: 2px solid white;
     border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+#speed-slider {
+    margin-bottom: 10px;
 }
