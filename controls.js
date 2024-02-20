@@ -50,6 +50,7 @@ $(document).ready(function() {
         updateRuleDisplay();
     });
 
+    loadGameOfLife();
     $("#apply-game-of-life")[0].addEventListener("click", function () {
         loadGameOfLife();
     });
