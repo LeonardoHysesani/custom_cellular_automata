@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 
     // Rule display
-    $("#rule-div")[0].innerHTML = binaryToHex(ruleString);;
+    $("#rule-div")[0].innerHTML = binaryToHex(ruleString);
     let switchRuleDisplayBtn = $("#switch-rule-display")[0];
     switchRuleDisplayBtn.addEventListener("click", function () {
         let ruleDiv = $("#rule-div")[0];

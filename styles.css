@@ -41,6 +41,10 @@ body {
     margin-bottom: 10px;
 }
 
+#play-pause-btn:hover {
+    background-color: grey;
+}
+
 #speed-slider {
     margin-bottom: 10px;
 }
