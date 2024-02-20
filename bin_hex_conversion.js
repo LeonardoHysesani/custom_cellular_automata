@@ -1,4 +1,4 @@
-// Borrowed from 3rd party xD
+// Borrowed from StackOverflow xD
 function binaryToHex(s) {
     var i, k, part, accum, ret = '';
     for (i = s.length - 1; i >= 3; i -= 4) {

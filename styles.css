@@ -4,6 +4,7 @@ body {
     width: 100vw;
     overflow: hidden;
     margin: 0;
+    font-family: monospace;
 }
 
 #outer_container {
@@ -23,4 +24,12 @@ body {
     word-break: break-word;
     text-align: center;
     width: 600px;
+}
+
+#play-pause-btn {
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 30px;
+    border: 2px solid white;
+    border-radius: 100%;
 }

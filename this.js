@@ -119,12 +119,6 @@ $(document).ready(function () {
         let coords = getMousePositionInGrid(canvas, event);
         grid[coords[0]][coords[1]] = grid[coords[0]][coords[1]] === 0 ? 1 : 0;
     });
-    document.addEventListener("keypress", function (ev) {
-        if (ev.key === " ") {
-            simulationEnabled = !simulationEnabled;
-        }
-    });
-
 
     function getMousePositionInGrid(canvas, event) {
         let realPosition = getMousePosition(canvas, event);
