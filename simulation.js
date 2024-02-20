@@ -161,7 +161,7 @@ function getEmptyGrid() {
 }
 
 /**
- * We define our own function than calculates a modulo because the javascript % operator is actually the remainder operator,
+ * We define our own function to calculate a modulo because the javascript % operator is actually the remainder operator,
  * allowing it to return negative values, which we do not want.
  * @param {number} n Dividend.
  * @param {number} m Divisor.
