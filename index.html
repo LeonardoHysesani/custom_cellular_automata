@@ -3,7 +3,7 @@
     <title>Cellular Automata</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="application/javascript" src="draw.js"></script>
-    <script type="application/javascript" src="this.js"></script>
+    <script type="application/javascript" src="simulation.js"></script>
     <script type="application/javascript" src="bin_hex_conversion.js"></script>
     <script type="application/javascript" src="controls.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -15,18 +15,9 @@
     <label for="speed-slider">Simulation speed</label>
     <input type="range" id="speed-slider" name="speed-slider" min="1" max="30" value="5"/>
     <canvas id="world_canvas" height="600px" width="600px"></canvas>
-    <label for="rule-div">Rules</label>
-    <div id="rule-div"></div>
-    <script type="application/javascript">
-        $(document).ready(function () {
-            // Rule display
-            let hexstr = binaryToHex(ruleString);
-            let hexarr = hexstr.match(/.{1,32}/g);
-            for (let i = 0; i < hexarr.length; i++) {
-                $("#rule-div")[0].innerHTML += hexarr[i] + "<br>";
-            }
-        });
-    </script>
+    <label for="rule-div">Ruleset:</label>
+    <div id="rule-div" class="hex"></div>
+    <div id="switch-rule-display">Hex/Binary</div>
 </div>
 </body>
 </html>

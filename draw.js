@@ -29,3 +29,20 @@ $(document).ready(function() {
         grid[coords[0]][coords[1]] = grid[coords[0]][coords[1]] === 0 ? 1 : 0;
     });
 });
+
+function getMousePosition(canvas, event) {
+    let rect = canvas.getBoundingClientRect();
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
+    return [x, y];
+}
+
+function getMousePositionInGrid(canvas, event) {
+    let realPosition = getMousePosition(canvas, event);
+    let gridPosition = [
+        Math.floor((realPosition[0]/canvasSize)*gridSize),
+        Math.floor((realPosition[1]/canvasSize)*gridSize),
+    ];
+    console.log(gridPosition);
+    return gridPosition;
+}

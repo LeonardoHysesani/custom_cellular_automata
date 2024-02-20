@@ -21,9 +21,16 @@ body {
 }
 
 #rule-div {
-    word-break: break-word;
     text-align: center;
-    width: 600px;
+    word-break: break-word;
+}
+
+#rule-div.hex {
+    max-width: 32ch;
+}
+
+#rule-div.bin {
+    max-width: 64ch;
 }
 
 #play-pause-btn {
@@ -36,4 +43,16 @@ body {
 
 #speed-slider {
     margin-bottom: 10px;
+}
+
+#switch-rule-display {
+    user-select: none;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#switch-rule-display:hover {
+    background-color: grey;
 }
