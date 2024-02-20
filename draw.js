@@ -1,4 +1,14 @@
+/**
+ * Frequency (per second) of drawing new frame on canvas.
+ * **This** and simulation speed could be used interchangeably, but their separation allows for better
+ * responsiveness when clicking on a cell to change its state manually.
+ *
+ * This is because by setting the framerate to higher than the simulation speed, we don't have to wait until the next
+ * simulation cycle, to see our manual change take effect on the grid.
+ * @type {number}
+ */
 let framerate = 60;
+
 let canvasSize = 600;
 let cellSize = 20;
 
@@ -10,6 +20,10 @@ $(document).ready(function() {
     context = canvas.getContext("2d");
     intervalId = window.setInterval(simulation, 1000/simulationSpeed);
     window.setInterval(draw, 1000/framerate)
+
+    /**
+     * Clears the current canvas and draws a new frame with updated (likely) data.
+     */
     function draw() {
         context.fillStyle = "#005555";
         context.strokeStyle = "#AAAAAA";
@@ -24,12 +38,21 @@ $(document).ready(function() {
             }
         }
     }
+
+    /**
+     * Toggle state of clicked cell
+     */
     canvas.addEventListener("click", function (event) {
         let coords = getMousePositionInGrid(canvas, event);
         grid[coords[0]][coords[1]] = grid[coords[0]][coords[1]] === 0 ? 1 : 0;
     });
 });
 
+/**
+ * @param canvas
+ * @param event
+ * @returns {number[]} Absolute coordinates of event relative to canvas.
+ */
 function getMousePosition(canvas, event) {
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.left;
@@ -37,6 +60,11 @@ function getMousePosition(canvas, event) {
     return [x, y];
 }
 
+/**
+ * @param canvas
+ * @param event
+ * @returns {number[]} Coordinates of cell clicked (relative to cell grid, not canvas).
+ */
 function getMousePositionInGrid(canvas, event) {
     let realPosition = getMousePosition(canvas, event);
     let gridPosition = [
