@@ -1,8 +1,8 @@
 /**
  * A structure that represents a 3x3 subgrid of our main grid.
  * The cells around the center one are called *Neighbours*.
- * This concept is integral to the way we represent our ruleset, because every possible neighbourhood represents
- * a rule (state) in the ruleset.
+ * This concept is integral to the way we represent our ruleset, because **every possible neighbourhood arrangement (the collection of the subgrid's values) represents
+ * a rule (state) in the ruleset**.
  *
  * For example a neighbourhood with only the main cell alive is represented in binary as 000010000 because the top row
  * is 000 (three dead cells side-by-side), the center one is 010 (dead-alive-dead) and the bottom one is 000.
@@ -11,7 +11,7 @@
  * This means that the rule for this neighbourhood will be located
  * at position 16 of our ruleset (represented as a binary string).
  *
- * By **rule** we refer to the next state of the center cell.
+ * By **rule** we refer to the next state of the center cell (0/1).
  *
  * **Example:**
  *
@@ -21,7 +21,17 @@
  *
  * 0  0  0
  *
- * So the next state of the center cell, will be at position 232 of our current ruleset
+ * So the next state of the center cell, will be at position 232 of our current ruleset.
+ *
+ * Note: Since our neighbourhoods are 3x3 grids, each of them is represented by a 3X3 = 9 digit binary number
+ * This means that there are 2^9 = 512 possible Neighbourhood arrangements. Thus, our **ruleset is 512 digits/characters
+ * long** in its binary form.
+ *
+ * If we wanted to add 1 more layer of depth to our Neighbourhoods, making them 5x5 grids, this number would skyrocket
+ * to 2^25 = 33,554,432 digits for our rule set. (Because 5x5 = 25, so each neighbourhood string would be 25 digits).
+ * (**33,554,432 possible Neighbourhood arrangements!!!**).
+ *
+ * Same goes if we moved to a 3D space from our current 2D.
  */
 class Neighbourhood {
     binaryString = undefined;
