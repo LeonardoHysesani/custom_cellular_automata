@@ -30,7 +30,22 @@
         <div id="switch-rule-display">Hex/Binary</div>
     </div>
     <div id="custom-rules-container">
+        <label id="help-texts-label" for="help-texts">Custom rules area. (Click to toggle help)</label>
+        <div id="help-texts">
+            <p>Format:</p>
+            <p>expression:state;<br>expression:state;<br>expression:state;<br></p>
+            <p>Any valid JavaScript expression will work, either arithmetic or logical.</p>
+            <p>Available variables:</p>
+            <ul>
+                <li><strong>cell &lt;Number&gt;</strong> - State of cell (0/1).</li>
+                <li><strong>liveNeighbours &lt;Number&gt;</strong> - Numbers of neighbours with state=1 (0-8).</li>
+            </ul>
+            <p>Example:</p>
+            <p>cell === 1 && liveNeighours >= 4 : 0;<br>liveNeighours >= 4 || liveNeighbours === 6 : 0;</p>
+            <p>You can even change the ruleset while the simulation is running and see how it gets affected.</p>
+        </div>
         <textarea id="rules-area"></textarea>
+        <div id="apply-ruleset">Apply ruleset</div>
     </div>
 </div>
 </body>

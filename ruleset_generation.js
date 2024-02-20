@@ -85,6 +85,10 @@ function parseCustomRuleString(string) {
     return tokenList;
 }
 
+function applyUserRuleSet(string) {
+    ruleString = generateRuleString(parseCustomRuleString(string));
+}
+
 /*
 function generateRuleString() {
     let rules = "";

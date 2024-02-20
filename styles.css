@@ -94,3 +94,30 @@ body {
     width: inherit;
     max-width: inherit;
 }
+
+#help-texts.active {
+    display: block;
+}
+
+#help-texts.noactive {
+    display: none;
+}
+
+#help-texts-label:hover {
+    color: yellow;
+    cursor: pointer;
+    background-color: gray;
+}
+
+#apply-ruleset {
+    border: 2px solid white;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#apply-ruleset:hover {
+    background-color: grey;
+}

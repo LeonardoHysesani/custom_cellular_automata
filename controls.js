@@ -21,9 +21,7 @@ $(document).ready(function() {
         updateSimulationSpeed(parseInt(speedSlider.value));
     });
 
-
-    // Rule display
-    $("#rule-div")[0].innerHTML = binaryToHex(ruleString);
+    updateRuleDisplay();
     let switchRuleDisplayBtn = $("#switch-rule-display")[0];
     switchRuleDisplayBtn.addEventListener("click", function () {
         let ruleDiv = $("#rule-div")[0];
@@ -35,4 +33,25 @@ $(document).ready(function() {
             ruleDiv.innerText = ruleString;
         }
     });
+
+    $("#help-texts-label")[0].addEventListener("click", function () {
+        if ($("#help-texts")[0].classList.contains("noactive")) {
+            $("#help-texts")[0].classList.remove("noactive");
+            $("#help-texts")[0].classList.add("active");
+        }
+        else {
+            $("#help-texts")[0].classList.remove("active");
+            $("#help-texts")[0].classList.add("noactive");
+        }
+    });
+
+    $("#apply-ruleset")[0].addEventListener("click", function () {
+        applyUserRuleSet($("#rules-area")[0].value);
+        updateRuleDisplay();
+    });
 });
+
+function updateRuleDisplay() {
+    // Rule display
+    $("#rule-div")[0].innerHTML = binaryToHex(ruleString);
+}
