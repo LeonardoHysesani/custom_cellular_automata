@@ -71,22 +71,56 @@ class Neighbourhood {
     }
 
     /**
-     * @returns {number} Number of perimetric cells **(center one is excepted)** with state == 1.
-     */
-    liveNeighbours() {
-        let str = this.binaryString.slice(0, 4) + this.binaryString.slice(5, this.binaryString.length);
-        let neighbours = 0;
-        for (let i = 0; i < str.length; i++) {
-            if (str.charAt(i) === "1") neighbours++;
-        }
-        return neighbours;
-    }
-
-    /**
      * @returns {number} State of center cell.
      */
     mainCell() {
         return parseInt(this.binaryString.charAt(4), 2);
+    }
+
+    /**
+     * @returns {number} Number of perimetric cells with state == 1.
+     */
+    liveNeighbours() {
+        let alive = 0;
+        for (let i = 0; i < this.neighbours().length; i++) {
+            alive += this.neighbours()[i];
+        }
+        return alive;
+    }
+
+    /**
+     * @returns {number} Number of adjacent cells with state = 1.
+     */
+    adjacentNeighbours() {
+        let adjacent = 0;
+        for (let i = 1; i < 8; i += 2) {
+            adjacent += this.neighbours()[i];
+        }
+        return adjacent;
+    }
+
+    /**
+     * @returns {number} Number of diagonal cells with state = 1.
+     */
+    diagonalNeighbours() {
+        let diagonal = 0;
+        for (let i = 0; i < 7; i += 2) {
+            diagonal += this.neighbours()[i];
+        }
+        return diagonal;
+    }
+
+    /**
+     * @returns {Number[]} States of neighbour cells (0-1). Indexing starts at top left cell and continues clockwise.
+     */
+    neighbours() {
+        // arranging array in the clockwise direction of the neighbourhood
+        let str = this.binaryString.slice(0, 3) + this.binaryString.slice(5, 6) + this.binaryString.slice(8, 9) + this.binaryString.slice(7, 8) + this.binaryString.slice(6, 7) + this.binaryString.slice(3, 4);
+        let neighbours = [];
+        for (let i = 0; i < str.length; i ++) {
+            neighbours[i] = parseInt(str.charAt(i));
+        }
+        return neighbours;
     }
 }
 

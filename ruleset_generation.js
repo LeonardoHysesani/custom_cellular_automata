@@ -34,6 +34,9 @@ function generateRuleString(rulesArray) {
         const neighbourhood = new Neighbourhood().fromBinaryString(Number(i).toString(2).padStart(9, "0"));
         let cell = neighbourhood.mainCell();
         let liveNeighbours = neighbourhood.liveNeighbours();
+        let adjacentNeighbours = neighbourhood.adjacentNeighbours();
+        let diagonalNeighbours = neighbourhood.diagonalNeighbours();
+        let neighbours = neighbourhood.neighbours();
         let rule = cell;
         for (let j = 0; j < rulesArray.length; j++) {
             if (eval(rulesArray[j][0])) {

@@ -37,13 +37,18 @@
             <p>Any valid JavaScript expression will work, either arithmetic or logical.</p>
             <p>Available variables:</p>
             <ul>
-                <li><strong>cell &lt;Number&gt;</strong> - State of cell (0/1).</li>
-                <li><strong>liveNeighbours &lt;Number&gt;</strong> - Numbers of neighbours with state=1 (0-8).</li>
+                <li><strong><i style="font-size: 16px">cell</i></strong> &lt;Integer&gt; - State of cell (0/1).</li>
+                <li><strong><i style="font-size: 16px">liveNeighbours</i></strong> &lt;Integer&gt; - Number of neighbours with state=1 (0-8).</li>
+                <li><strong><i style="font-size: 16px">adjacentNeighbours</i></strong> &lt;Integer&gt; - Number of adjacent neighbours (up, down, left, right) with state=1 (0-4).</li>
+                <li><strong><i style="font-size: 16px">diagonalNeighbours</i></strong> &lt;Integer&gt; - Number of diagonal neighbours (top left, top right, bottom left, bottom right) with state=1 (0-4).</li>
+                <li><strong><i style="font-size: 16px">neighbours[8]</i></strong> Array&lt;Integer&gt; - State of specified neighbour. Indexing (0-7) starts at top left neighbour (0) and goes clockwise.</li>
             </ul>
             <p>Example:</p>
             <p>cell === 1 && liveNeighours >= 4 : 0;<br>liveNeighours >= 4 || liveNeighbours === 6 : 0;</p>
             <p>You can even change the ruleset while the simulation is running and see how it gets affected.</p>
         </div>
+        <br>
+        <label for="rules-area">Enter rules below:</label>
         <textarea id="rules-area" spellcheck="false"></textarea>
         <div id="apply-ruleset">Apply ruleset</div>
         <div id="apply-game-of-life">Load Conway's Game of Life</div>
