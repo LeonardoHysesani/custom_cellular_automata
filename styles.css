@@ -2,7 +2,8 @@ body {
     background-color: black;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     margin: 0;
     font-family: monospace;
 }
@@ -83,10 +84,13 @@ body {
 
 #custom-rules-container {
     margin: 50px;
+    padding: 50px;
     min-width: 20vw;
     width: 20vw;
     max-width: 20vw;
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #rules-area {
