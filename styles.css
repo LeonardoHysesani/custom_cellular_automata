@@ -6,6 +6,7 @@ body {
     overflow-y: hidden;
     margin: 0;
     font-family: monospace;
+    color: white;
 }
 
 #outer_container {
